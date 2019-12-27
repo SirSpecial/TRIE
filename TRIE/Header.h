@@ -9,14 +9,15 @@ const int ALPHABET_SIZE = 26;
 struct TrieNode
 {
 	TrieNode* children[ALPHABET_SIZE];
-	bool endofword;
-	TrieNode()
+	int endofword;
+	/*TrieNode()
 	{
 		for (int i = 0; i < ALPHABET_SIZE; i++)
 			children[i] = NULL;
 		endofword = 0;
-	}
+	}*/
 };
+TrieNode* newNode();
 
 void insertTrie(TrieNode* root, string key);
 
@@ -34,5 +35,7 @@ void suggestionsRec(struct TrieNode* root, string currPrefix, vector <string>& a
 
 void input(vector <char>& input);
 
-TrieNode* remove(TrieNode* root, string key, int depth = 0);
+bool isWord(TrieNode* node);
+bool isEmpty(TrieNode* node);
+bool remove(TrieNode* root, string key, int depth = 0);
 
